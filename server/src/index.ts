@@ -34,7 +34,7 @@ app.use((req, res) => {
     res.status(404).json({ error: 'Route not found' });
 });
 
-const errorHandler: ErrorRequestHandler = (err, req, res, next) => {
+const errorHandler: ErrorRequestHandler = (err, req, res) => {
     console.error(err.stack);
     res.status(500).json({ error: 'Internal server error' });
 };

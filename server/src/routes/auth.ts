@@ -4,7 +4,6 @@ import jwt from 'jsonwebtoken';
 import prisma from '../prisma';
 import dotenv from 'dotenv';
 import {body, validationResult} from 'express-validator';
-import {PrismaClientKnownRequestError} from "@prisma/client/runtime/library";
 
 dotenv.config();
 const router = Router();
