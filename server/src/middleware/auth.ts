@@ -21,8 +21,12 @@ export function authenticateToken(req: Request, res: Response, next: NextFunctio
         const { id } = decoded as JwtPayload;
         const user = await prisma.user.findUnique({ where: { id } });
 
-        if (!user || !user.status) {
-            return res.status(403).json({ error: 'User blocked or not found' });
+        if (!user) {
+            return res.status(403).json({ error: 'User not found' });
+        }
+
+        if (!user.status) {
+            return res.status(403).json({ error: 'User is blocked' });
         }
 
         await prisma.user.update({

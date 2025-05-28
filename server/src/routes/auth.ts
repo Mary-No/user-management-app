@@ -33,10 +33,8 @@ router.post(
                 },
             });
             res.status(201).json({ user });
-        } catch (error) {
-            console.error('Registration error:', error);
-
-            if (error instanceof PrismaClientKnownRequestError && error.code === 'P2002') {
+        } catch (error: any) {
+            if (error.code === 'P2002' && error.meta?.target?.includes('email')) {
                 res.status(400).json({ error: 'Email already exists' });
                 return;
             }
@@ -50,8 +48,14 @@ router.post('/login', async (req: Request, res: Response): Promise<void> => {
 
     try {
         const user = await prisma.user.findUnique({ where: { email } });
+
         if (!user) {
             res.status(404).json({ error: 'User not found' });
+            return;
+        }
+
+        if (!user.status) {
+            res.status(403).json({ error: 'User is blocked' });
             return;
         }
 
@@ -72,6 +76,7 @@ router.post('/login', async (req: Request, res: Response): Promise<void> => {
         res.status(500).json({ error: 'Login failed' });
     }
 });
+
 
 
 

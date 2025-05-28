@@ -1,8 +1,9 @@
-import express, {ErrorRequestHandler, Request, Response} from 'express';
+import express, {ErrorRequestHandler} from 'express';
 import cors from 'cors';
 import dotenv from 'dotenv';
 import authRoutes from './routes/auth';
 import userRoutes from './routes/users';
+import './types/express';
 
 dotenv.config();
 
