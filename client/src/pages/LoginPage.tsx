@@ -2,7 +2,7 @@ import {useEffect} from 'react';
 import {useForm} from 'react-hook-form';
 import {Tooltip} from 'bootstrap';
 import {Link, useNavigate} from 'react-router-dom';
-import wallpaper from '../assets/wallpaper.jpg';
+import wallpaper from '../assets/wallpaper.webp';
 import s from '../styles/loginPage.module.scss';
 import {useLoginMutation} from '../app/api';
 import {useToast} from '../components/ToastProvider';

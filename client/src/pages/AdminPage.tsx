@@ -4,6 +4,7 @@ import {useState} from "react";
 import {useToast} from '../components/ToastProvider.tsx';
 import {useAppDispatch} from "../app/hooks.ts";
 import {logout} from "../features/auth/authSlice.ts";
+import s from "../styles/adminPage.module.scss";
 
 export const AdminPage = () => {
     const {data: users, isLoading, refetch} = useGetUsersQuery();
@@ -39,8 +40,8 @@ export const AdminPage = () => {
     const handleLogoutClick = () => {
         dispatch(logout())
     }
-    return (<div className="container my-4">
-            <div className="d-flex justify-content-between align-items-center flex-wrap gap-2">
+    return (<div className={`container my-4 ${s.container}`}>
+            <div className={`d-flex justify-content-between align-items-center flex-wrap gap-2 ${s.btns}`}>
                 <div className="btn-group" role="group" aria-label="Admin actions">
                     <button disabled={!selectedIds.length} type="button" onClick={() => handleBlockUnblockClick(true)}
                             className="btn btn-outline-primary">

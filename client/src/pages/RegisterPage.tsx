@@ -102,7 +102,8 @@ export const RegisterPage = () => {
                         {errors.password && <div className="invalid-feedback">{errors.password.message}</div>}
                     </div>
 
-                    <button type="submit" className="btn mt-3 btn-primary w-100" disabled={isLoading}>
+                    <button type="submit" className={`btn mt-3 btn-primary w-100 ${s.registerBtn}`}
+                            disabled={isLoading}>
                         {isLoading ? 'Registering...' : 'Register'}
                     </button>
                 </form>

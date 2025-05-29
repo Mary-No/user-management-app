@@ -1,4 +1,5 @@
 import React from "react";
+import s from "../styles/adminPage.module.scss";
 
 type User = {
     id: number;
@@ -40,7 +41,7 @@ export const UsersTable = ({users, setSelectedIds, selectedIds}: Props) => {
     };
 
     return (
-        <div className="table-responsive">
+        <div className={`table-responsive-sm ${s.table}`}>
             <table className="table table-striped align-middle">
                 <thead>
                 <tr>
@@ -72,7 +73,7 @@ export const UsersTable = ({users, setSelectedIds, selectedIds}: Props) => {
                         <td>{name}</td>
                         <td>{email}</td>
                         <td>
-                <span className={`badge ${status ? 'bg-success' : 'bg-danger'}`}>
+                <span className={`badge ${status ? 'bg-success' : 'bg-danger'} ${s.badge}`}>
                   {status ? 'Active' : 'Blocked'}
                 </span>
                         </td>
