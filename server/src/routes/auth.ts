@@ -7,7 +7,6 @@ import {body, validationResult} from 'express-validator';
 
 dotenv.config();
 const router = Router();
-
 router.post(
     '/register',
     [
@@ -18,7 +17,20 @@ router.post(
     async (req: Request, res: Response): Promise<void> => {
         const errors = validationResult(req);
         if (!errors.isEmpty()) {
-            res.status(400).json({ errors: errors.array() });
+            const formattedErrors = errors.array({ onlyFirstError: true }).map((err) => {
+                const field = 'path' in err ? err.path : 'param' in err ? err.param : '';
+                return {
+                    field,
+                    message:
+                        field === 'email'
+                            ? 'Invalid email. Use format like example@mail.com and only English letters.'
+                            : field === 'password'
+                                ? 'Password must be at least 6 characters long.'
+                                : err.msg,
+                };
+            });
+
+            res.status(400).json({ errors: formattedErrors });
             return;
         }
 
@@ -75,8 +87,6 @@ router.post('/login', async (req: Request, res: Response): Promise<void> => {
         res.status(500).json({ error: 'Login failed' });
     }
 });
-
-
 
 
 export default router;

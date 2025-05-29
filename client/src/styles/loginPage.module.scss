@@ -1,0 +1,98 @@
+.logo {
+  font-family: "Rubik Vinyl", system-ui;
+}
+
+.introduction, .signIn {
+  font-family: Montserrat, sans-serif;
+}
+
+.introduction {
+  font-size: 1.25rem;
+}
+
+.signIn {
+  font-size: 1.75rem;
+}
+
+.form {
+  padding: 3rem;
+  width: 55%
+}
+
+.signUp {
+  font-family: Montserrat, sans-serif;
+  font-size: 1.1rem;
+}
+
+.singUpLink {
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.emailBlock, .passwordBlock {
+  margin: 1rem 0;
+}
+
+
+@media (min-width: 1600px) {
+  .introduction {
+    font-size: 2.5rem;
+  }
+  .signIn {
+    font-size: 3rem;
+  }
+  .form {
+    width: 65%;
+    padding: 3.2rem;
+  }
+  .logo {
+    font-size: 4.5rem;
+  }
+  .formInput {
+    font-size: 2.2rem !important;
+  }
+  .formLabel {
+    font-size: 2.3rem;
+  }
+  .signInBtn {
+    height: 80px;
+    font-size: 2.4rem !important;
+  }
+  .signUp {
+    font-size: 2.4rem;
+    margin-top: 2rem;
+  }
+  .emailBlock, .passwordBlock {
+    margin: 2rem 0;
+  }
+}
+
+@media (max-width: 1200px) {
+  .logo {
+    font-size: 3rem;
+  }
+  .form {
+    padding: 2rem;
+    width: 76%;
+  }
+}
+
+@media (max-width: 870px) {
+  .container {
+    display: flex;
+    justify-content: center;
+  }
+  .wallpaperBlock {
+    display: none !important;
+  }
+  .form {
+    padding: 2rem;
+    width: 100%;
+  }
+}
+
+@media (max-width: 767px) {
+  .form {
+    width: 400px;
+  }
+}
