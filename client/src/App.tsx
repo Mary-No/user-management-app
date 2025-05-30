@@ -6,7 +6,7 @@ import {RegisterPage} from "./pages/RegisterPage.tsx";
 
 const App = () => {
     return (
-        <HashRouter>
+        <HashRouter basename="/user-management-app">
             <Routes>
                 <Route path="/login" element={<LoginPage/>}/>
                 <Route path="/register" element={<RegisterPage/>}/>
