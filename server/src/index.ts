@@ -11,7 +11,7 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 
 app.use(cors({
-    origin: /^http:\/\/localhost:\d+$/,
+    origin: [/^http:\/\/localhost:\d+$/, 'https://mary-no.github.io/'],
     credentials: true,
 }));
 
