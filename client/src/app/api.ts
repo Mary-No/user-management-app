@@ -4,7 +4,7 @@ import {logout} from '../features/auth/authSlice';
 
 
 const baseQuery = fetchBaseQuery({
-    baseUrl: 'http://localhost:3000/api',
+    baseUrl: 'https://residential-dorette-mary-no-e96a3900.koyeb.app/api',
     prepareHeaders: (headers, {endpoint}) => {
         const endpointsRequiringAuth = ['getUsers', 'deleteUsers', 'blockUnblockUsers'];
         if (endpointsRequiringAuth.includes(endpoint)) {
