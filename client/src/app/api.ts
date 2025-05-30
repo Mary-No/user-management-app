@@ -5,13 +5,10 @@ import {logout} from '../features/auth/authSlice';
 
 const baseQuery = fetchBaseQuery({
     baseUrl: 'https://residential-dorette-mary-no-e96a3900.koyeb.app/api',
-    prepareHeaders: (headers, {endpoint}) => {
-        const endpointsRequiringAuth = ['getUsers', 'deleteUsers', 'blockUnblockUsers'];
-        if (endpointsRequiringAuth.includes(endpoint)) {
-            const token = localStorage.getItem('token');
-            if (token) {
-                headers.set('Authorization', `Bearer ${token}`);
-            }
+    prepareHeaders: (headers) => {
+        const token = localStorage.getItem('token');
+        if (token) {
+            headers.set('Authorization', `Bearer ${token}`);
         }
         return headers;
     },
